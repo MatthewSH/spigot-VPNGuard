@@ -6,3 +6,17 @@ website: ${url}
 main: ${mainClass}
 depend: ${dependencies}
 commands:
+  vpng:
+    aliases:
+      - vpnguard
+    description: The VPNGuard commands.
+permissions:
+  vpnguard.allowvpn:
+    description: Allows a user to log in with a VPN.
+    default: false
+  vpnguard.command.refresh:
+    description: Allows use of the refresh command.
+    default: op
+  vpnguard.command.reload:
+    description: Allows use of the reload command.
+    default: op
