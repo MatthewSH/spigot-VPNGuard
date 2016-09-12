@@ -1,5 +1,12 @@
 package com.matthewhatcher.vpnguard.Utils;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +19,43 @@ public class FileUtils
 	
 	public FileUtils(VPNGuard plugin) {
 		this.plugin = plugin;
+		
+		loadCache();
+	}
+	
+	public void loadCache() {
+		try {
+			String line;
+			File cFile = new File(plugin.getDataFolder(), "cache");
+			if(!cFile.exists()) {
+				cFile.createNewFile();
+			}
+			
+			BufferedReader br = new BufferedReader(new FileReader(cFile));
+			
+            while ((line = br.readLine()) != null) {
+            	cachedIPs.add(line.trim());
+            }
+            
+            br.close();
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void addIP(String ip) {
+		try {
+			Writer w = new BufferedWriter(new FileWriter(new File(plugin.getDataFolder(), "cache"), true));
+			w.append(ip);
+			w.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public boolean isInCache(String ip) {
+		return true;
 	}
 
 }
