@@ -18,9 +18,9 @@ VPN Guard is an open-source Spigot plugin that has VPN file caching and has 2 we
 ## Permissions
 `vpnguard.allowvpn` - Allows a user to log in with a VPN. (Defaults false)
 
-`vpnguard.commands.refresh` - Allows use of the refresh command (Defaults OP)
+`vpnguard.command.refresh` - Allows use of the refresh command. (Defaults OP)
 
-`vpnguard.command.reload` - Allows use of the reload command (Defaults OP)
+`vpnguard.command.reload` - Allows use of the reload command. (Defaults OP)
 
 ## APIs
 Two APIs are used in the plugin.
