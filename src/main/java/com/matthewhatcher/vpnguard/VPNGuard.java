@@ -1,7 +1,5 @@
 package com.matthewhatcher.vpnguard;
 
-import org.bukkit.event.Listener;
-import org.bukkit.event.player.AsyncPlayerPreLoginEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.matthewhatcher.vpnguard.Listeners.LoginListener;
