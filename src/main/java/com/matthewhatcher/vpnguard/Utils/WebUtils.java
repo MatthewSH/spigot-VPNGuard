@@ -13,7 +13,7 @@ public class WebUtils
 		this.plugin = plugin;
 		
 		if(plugin.config.hasEmail()) {
-			apiUrl = "http://check.getipintel.net/check.php?ip=%ip%&contact=" + plugin.config.adminEmail;
+			apiUrl = "http://check.getipintel.net/check.php?ip=%ip%&flags=m&format=json&contact=" + plugin.config.adminEmail;
 			fallbackApiUrl = "http://legacy.iphub.info/api.php?ip=%ip%&showtype=4&email=" + plugin.config.adminEmail;
 		} else {
 			apiUrl = null;
