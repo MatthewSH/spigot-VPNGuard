@@ -1,8 +1,10 @@
 package com.matthewhatcher.vpnguard.Listeners;
 
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.AsyncPlayerPreLoginEvent;
+import org.bukkit.event.player.PlayerLoginEvent;
+import org.bukkit.event.player.PlayerLoginEvent.Result;
 
 import com.matthewhatcher.vpnguard.VPNGuard;
 
@@ -15,7 +17,20 @@ public class LoginListener implements Listener
 	}
 	
 	@EventHandler
-	public void onPreLogin(AsyncPlayerPreLoginEvent event) {
+	public void onLogin(PlayerLoginEvent event) {
+		Player player = event.getPlayer();
+		String ipAddress = player.getAddress().toString();
+		
+		if(plugin.file.isInCache(ipAddress) || plugin.web.isVPN(ipAddress)) {
+			if(!plugin.file.isInCache(ipAddress)) {
+				plugin.file.addIP(ipAddress);
+			}
+			
+			if(!player.hasPermission("vpnguard.allowvpn")) {
+				event.setKickMessage(plugin.config.kickMessage);
+				event.setResult(Result.KICK_OTHER);
+			}
+		}
 		
 	}
 }
