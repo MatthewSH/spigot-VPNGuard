@@ -24,6 +24,8 @@ public class FileUtils
 	}
 	
 	public void loadCache() {
+		cachedIPs.clear();
+		
 		try {
 			String line;
 			File cFile = new File(plugin.getDataFolder(), "cache");
