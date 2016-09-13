@@ -13,6 +13,9 @@ public class ConfigUtils
 	
 	public ConfigUtils(VPNGuard plugin) {
 		this.plugin = plugin;
+		
+		saveDefaultConfig();
+		loadConfig();
 	}
 	
 	public void loadConfig() {
