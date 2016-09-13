@@ -29,6 +29,7 @@ public class WebUtils
 		return true;
 	}
 	
+	public boolean isVPN(String ip) {
 		return true;
 	}
 }
