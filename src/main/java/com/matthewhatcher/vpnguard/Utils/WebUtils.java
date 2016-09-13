@@ -28,4 +28,7 @@ public class WebUtils
 	public boolean fallbackIsOnline() {
 		return true;
 	}
+	
+		return true;
+	}
 }
