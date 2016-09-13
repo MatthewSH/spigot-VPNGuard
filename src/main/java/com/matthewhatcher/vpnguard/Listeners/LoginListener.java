@@ -6,6 +6,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerLoginEvent;
 import org.bukkit.event.player.PlayerLoginEvent.Result;
 
+import com.matthewhatcher.vpnguard.PluginMessages;
 import com.matthewhatcher.vpnguard.VPNGuard;
 
 public class LoginListener implements Listener 
@@ -27,6 +28,7 @@ public class LoginListener implements Listener
 			}
 			
 			if(!player.hasPermission("vpnguard.allowvpn")) {
+				plugin.getLogger().info(PluginMessages.CONSOLE_BLOCKEDLOGIN.replace("%name%", player.getName()).replace("%ip%", ipAddress));
 				event.setKickMessage(plugin.config.kickMessage);
 				event.setResult(Result.KICK_OTHER);
 			}
