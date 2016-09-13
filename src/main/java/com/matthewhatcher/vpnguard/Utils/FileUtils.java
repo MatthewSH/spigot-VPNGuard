@@ -56,6 +56,17 @@ public class FileUtils
 		}
 	}
 	
+	public void purgeCache() {
+		try {
+			cachedIPs.clear();
+			Writer w = new BufferedWriter(new FileWriter(new File(plugin.getDataFolder(), "cache"), true));
+			w.write("");
+			w.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public boolean isInCache(String ip) {
 		return true;
 	}
