@@ -38,3 +38,5 @@ A file is created called `cache` this is a file containing known VPN IPs. Each I
 84.19.169.228
 217.114.211.242
 ```
+
+If you want to take a look at some premade stuff, or contribute to it, take a look [here](https://github.com/MatthewSH/VPNGuard-IP-List)
