@@ -13,7 +13,7 @@ VPN Guard is an open-source Spigot plugin that has VPN file caching and has 2 we
 
 `vpng reload` - Reloads the config.
 
-`vpng purge` (Console Command) - **This purges the VPN cache completely and will call the APIs immediately, use with caution!**
+`vpngpurge` (Console Command) - **This purges the VPN cache completely and will call the APIs immediately, use with caution!**
 
 ## Permissions
 `vpnguard.allowvpn` - Allows a user to log in with a VPN. (Defaults false)
