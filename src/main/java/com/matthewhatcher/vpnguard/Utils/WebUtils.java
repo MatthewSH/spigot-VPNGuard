@@ -16,7 +16,7 @@ public class WebUtils
 			apiUrl = "http://check.getipintel.net/check.php?ip=%ip%&contact=" + plugin.config.adminEmail;
 			fallbackApiUrl = "http://legacy.iphub.info/api.php?ip=%ip%&showtype=4&email=" + plugin.config.adminEmail;
 		} else {
-			apiUrl = "http://check.getipintel.net/check.php?ip=%ip%";
+			apiUrl = null;
 			fallbackApiUrl = "http://legacy.iphub.info/api.php?ip=%ip%&showtype=4";
 		}
 	}
