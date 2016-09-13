@@ -4,7 +4,7 @@ VPN Guard is an open-source Spigot plugin that has VPN file caching and has 2 we
 ## Config
 `kick-message` - The message displayed when a user is kicked, `%name%` is replaced with the name and `%ip%` is replaced with IP. Colors will be converted if formated as `&#` where `#` is an integer.
 
-`email-address` (Optional) - If left out, the API url will change. If you're on a server that has a lot of activity, this is suggested as the API hosts may try to contact you to work out something with you because of so much API usage. If left blank and you're rapidly sending request, the host may block the IP of the server.
+`email-address` (Optional) - If left out, the API url will change. If you're on a server that has a lot of activity, this is suggested as the API hosts may try to contact you to work out something with you because of so much API usage. If left blank and you're rapidly sending request, the host may block the IP of the server. Without a contact email, Get IP Intel will not work and will fallback on IP Hub (and only IP Hub).
 
 `allow-vpn-connection` - This will allow users with the `vpnguard.allowvpn` permission to connect.
 
