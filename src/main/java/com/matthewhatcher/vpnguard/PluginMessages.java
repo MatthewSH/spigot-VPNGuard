@@ -19,7 +19,7 @@ public class PluginMessages
 	public static String COMMAND_REFRESH_COMPLETED = PREFIX + "Cache has been refreshed.";
 	public static String COMMAND_RELOAD = PREFIX + "Reloading config...";
 	public static String COMMAND_RELOAD_COMPLETED = PREFIX + "Configuration has been reloaded.";
-	public static String CONSOLE_BLOCKEDLOGIN = PREFIX_NOCOLOR + "";
+	public static String CONSOLE_BLOCKEDLOGIN = PREFIX_NOCOLOR + "%name% (%ip%) tried to log in, kicked for VPN.";
 	public static String CONSOLE_COMMAND_PURGE = PREFIX_NOCOLOR + "Okay then, clearing the cache file.";
 	public static String CONSOLE_COMMAND_PURGE_COMPLETED = PREFIX_NOCOLOR + "Cache file has been emptied, may God help you.";
 }
