@@ -30,7 +30,7 @@ public class VPNGuard extends JavaPlugin
 		web = new WebUtils(getInstance());
 		file = new FileUtils(getInstance());
 		
-		this.getServer().getPluginManager().registerEvents(loginListener, this.instance);
+		this.getServer().getPluginManager().registerEvents(loginListener, getInstance());
 		this.getCommand("vpng").setExecutor(new AdminCommands(this));
 		this.getCommand("vpnguard").setExecutor(new AdminCommands(this));
 		this.getCommand("vpngpurge").setExecutor(new ConsoleCommands(this));
