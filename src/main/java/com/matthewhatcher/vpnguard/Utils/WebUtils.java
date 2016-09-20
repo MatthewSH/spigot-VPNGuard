@@ -11,8 +11,8 @@ public class WebUtils
 	private VPNGuard plugin;
 	String apiUrl;
 	String fallbackApiUrl;
-	String mainUrl = "getipintel.net";
-	String fallbackUrl = "iphub.info";
+	String mainUrl = "http://getipintel.net";
+	String fallbackUrl = "http://iphub.info";
 	
 	public WebUtils(VPNGuard plugin) {
 		this.plugin = plugin;
@@ -49,8 +49,8 @@ public class WebUtils
 	public boolean isVPN(String ip) {
 		JsonObject obj;
 		String response;
-		
-		if((apiUrl != null && apiUrl.length() > 2) && apiIsOnline()) {
+
+		if((apiUrl != null && apiUrl.length() > 2)) {
 			response = HttpRequest.get(apiUrl.replace("%ip%", ip)).body();
 			obj = new JsonParser().parse(response).getAsJsonObject();
 			
@@ -58,15 +58,13 @@ public class WebUtils
 				if(obj.get("result").getAsInt() == 1)
 					return true;
 			}
-				
-			return false;
-		} else if((fallbackApiUrl != null && fallbackApiUrl.length() > 2) && fallbackIsOnline()) {
+			
+		} else if((fallbackApiUrl != null && fallbackApiUrl.length() > 2)) {
 			response = HttpRequest.get(fallbackApiUrl.replace("%ip%", ip)).body();
 			obj = new JsonParser().parse(response).getAsJsonObject();
+			
 			if(obj.get("proxy").getAsInt() == 1)
 				return true;
-				
-			return false;
 		}
 		
 		return false;
