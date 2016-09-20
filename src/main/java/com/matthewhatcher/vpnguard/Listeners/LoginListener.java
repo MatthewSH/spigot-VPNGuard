@@ -20,7 +20,7 @@ public class LoginListener implements Listener
 	@EventHandler
 	public void onLogin(PlayerLoginEvent event) {
 		Player player = event.getPlayer();
-		String ipAddress = player.getAddress().toString();
+		String ipAddress = event.getAddress().toString().replace("/", "");
 		
 		if(plugin.file.isInCache(ipAddress) || plugin.web.isVPN(ipAddress)) {
 			if(!plugin.file.isInCache(ipAddress)) {
@@ -29,10 +29,9 @@ public class LoginListener implements Listener
 			
 			if(!player.hasPermission("vpnguard.allowvpn")) {
 				plugin.getLogger().info(PluginMessages.CONSOLE_BLOCKEDLOGIN.replace("%name%", player.getName()).replace("%ip%", ipAddress));
-				event.setKickMessage(plugin.config.kickMessage);
+				event.setKickMessage(plugin.config.kickMessage.replace("%name%", player.getName()).replace("%ip%", ipAddress));
 				event.setResult(Result.KICK_OTHER);
 			}
 		}
-		
 	}
 }
