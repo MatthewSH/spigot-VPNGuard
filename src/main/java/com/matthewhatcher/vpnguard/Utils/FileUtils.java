@@ -68,7 +68,7 @@ public class FileUtils
 	}
 	
 	public boolean isInCache(String ip) {
-		return true;
+		return cachedIPs.contains(ip);
 	}
 
 }
