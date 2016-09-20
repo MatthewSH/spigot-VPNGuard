@@ -24,6 +24,8 @@ public class ConsoleCommands implements CommandExecutor
 				plugin.file.purgeCache();
 				sender.sendMessage(PluginMessages.CONSOLE_COMMAND_PURGE_COMPLETED);
 			}
+			
+			return true;
 		}
 		
 		return false;
