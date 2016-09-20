@@ -10,12 +10,12 @@ commands:
     aliases:
       - vpnguard
     description: The VPNGuard commands.
-  vpngpurge
+  vpngpurge:
     description: Console only cache purging.
 permissions:
   vpnguard.allowvpn:
     description: Allows a user to log in with a VPN.
-    default: false
+    default: op
   vpnguard.command.refresh:
     description: Allows use of the refresh command.
     default: op
