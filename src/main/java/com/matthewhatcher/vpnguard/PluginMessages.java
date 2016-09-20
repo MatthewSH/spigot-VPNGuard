@@ -4,7 +4,7 @@ import org.bukkit.ChatColor;
 
 public class PluginMessages 
 {
-	public static String DEFAULT_KICK_MESSAGE = "Sorry, but your IP (%ip) seems to be a VPN and you were kicked. Please turn it off and try again.";
+	public static String DEFAULT_KICK_MESSAGE = "Sorry, but your IP (%ip%) seems to be a VPN and you were kicked. Please turn it off and try again.";
 	public static String PREFIX = ChatColor.WHITE + "[" + 
 								  ChatColor.GOLD + "VPN Guard" +
 								  ChatColor.WHITE + "] ";
@@ -19,7 +19,7 @@ public class PluginMessages
 	public static String COMMAND_REFRESH_COMPLETED = PREFIX + "Cache has been refreshed.";
 	public static String COMMAND_RELOAD = PREFIX + "Reloading config...";
 	public static String COMMAND_RELOAD_COMPLETED = PREFIX + "Configuration has been reloaded.";
-	public static String CONSOLE_BLOCKEDLOGIN = PREFIX_NOCOLOR + "%name% (%ip%) tried to log in, kicked for VPN.";
-	public static String CONSOLE_COMMAND_PURGE = PREFIX_NOCOLOR + "Okay then, clearing the cache file.";
-	public static String CONSOLE_COMMAND_PURGE_COMPLETED = PREFIX_NOCOLOR + "Cache file has been emptied, may God help you.";
+	public static String CONSOLE_BLOCKEDLOGIN = "%name% (%ip%) tried to log in, kicked for VPN.";
+	public static String CONSOLE_COMMAND_PURGE = "Okay then, clearing the cache file.";
+	public static String CONSOLE_COMMAND_PURGE_COMPLETED = "Cache file has been emptied, may God help you.";
 }
