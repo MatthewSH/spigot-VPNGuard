@@ -51,6 +51,7 @@ public class FileUtils
 			Writer w = new BufferedWriter(new FileWriter(new File(plugin.getDataFolder(), "cache"), true));
 			w.append(ip);
 			w.close();
+			cachedIPs.add(ip);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
