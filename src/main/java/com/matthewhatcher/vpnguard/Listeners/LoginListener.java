@@ -29,7 +29,7 @@ public class LoginListener implements Listener
 			
 			if(!player.hasPermission("vpnguard.allowvpn")) {
 				plugin.getLogger().info(PluginMessages.CONSOLE_BLOCKEDLOGIN.replace("%name%", player.getName()).replace("%ip%", ipAddress));
-				event.setKickMessage(plugin.config.kickMessage.replace("%name%", player.getName()).replace("%ip%", ipAddress));
+				event.setKickMessage(plugin.config.kickMessage.replace("%name%", player.getName()).replace("%ip%", ipAddress).replace("&", "§"));
 				event.setResult(Result.KICK_OTHER);
 			}
 		}

@@ -26,6 +26,8 @@ public class ConsoleCommands implements CommandExecutor
 			}
 			
 			return true;
+		} else {
+			sender.sendMessage(PluginMessages.PREFIX + "You must have console access to run this command.");
 		}
 		
 		return false;
