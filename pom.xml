@@ -118,6 +118,6 @@
     </build>
     <groupId>com.matthewhatcher</groupId>
     <artifactId>VPNGuard</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <description>VPN Guard is an open-source Spigot plugin that has VPN file caching and has 2 web APIs to switch between.</description>
 </project>
