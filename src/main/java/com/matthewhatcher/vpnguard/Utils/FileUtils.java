@@ -15,28 +15,44 @@ import com.matthewhatcher.vpnguard.VPNGuard;
 public class FileUtils 
 {
 	private VPNGuard plugin;
-	public List<String> cachedIPs = new ArrayList<String>();
+	public List<String> blacklistIPs = new ArrayList<String>();
+	public List<String> whitelistIPs = new ArrayList<String>();
 	
 	public FileUtils(VPNGuard plugin) {
 		this.plugin = plugin;
 		
+		newCache();	
 		loadCache();
 	}
 	
 	public void loadCache() {
-		cachedIPs.clear();
+		blacklistIPs.clear();
+		whitelistIPs.clear();
 		
 		try {
 			String line;
-			File cFile = new File(plugin.getDataFolder(), "cache");
-			if(!cFile.exists()) {
-				cFile.createNewFile();
-			}
 			
-			BufferedReader br = new BufferedReader(new FileReader(cFile));
+			File bcFile = new File(plugin.getDataFolder(), "blacklist_cache");
+			File wcFile = new File(plugin.getDataFolder(), "whitelist_cache");
+			
+			if(!bcFile.exists())
+				bcFile.createNewFile();
+			
+			if(!wcFile.exists())
+				wcFile.createNewFile();
+			
+			BufferedReader br = new BufferedReader(new FileReader(bcFile));
 			
             while ((line = br.readLine()) != null) {
-            	cachedIPs.add(line.trim());
+            	blacklistIPs.add(line.trim());
+            }
+            
+            br.close();
+            
+            br = new BufferedReader(new FileReader(wcFile));
+            
+            while ((line = br.readLine()) != null) {
+            	whitelistIPs.add(line.trim());
             }
             
             br.close();
@@ -46,13 +62,25 @@ public class FileUtils
 		}
 	}
 	
-	public void addIP(String ip) {
+	public void addIPToBlacklist(String ip) {
 		try {
-			Writer w = new BufferedWriter(new FileWriter(new File(plugin.getDataFolder(), "cache"), true));
+			Writer w = new BufferedWriter(new FileWriter(new File(plugin.getDataFolder(), "blacklist_cache"), true));
 			w.append(ip);
 			w.append("\n");
 			w.close();
-			cachedIPs.add(ip);
+			blacklistIPs.add(ip);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void addIPToWhitelist(String ip) {
+		try {
+			Writer w = new BufferedWriter(new FileWriter(new File(plugin.getDataFolder(), "whitelist_cache"), true));
+			w.append(ip);
+			w.append("\n");
+			w.close();
+			whitelistIPs.add(ip);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -60,17 +88,37 @@ public class FileUtils
 	
 	public void purgeCache() {
 		try {
-			cachedIPs.clear();
-			Writer w = new BufferedWriter(new FileWriter(new File(plugin.getDataFolder(), "cache"), true));
+			blacklistIPs.clear();
+			whitelistIPs.clear();
+			
+			Writer w = new BufferedWriter(new FileWriter(new File(plugin.getDataFolder(), "blacklist_cache"), true));
 			w.write("");
 			w.close();
+			
+			w = new BufferedWriter(new FileWriter(new File(plugin.getDataFolder(), "whitelist_cache"), true));
+			w.write("");
+			w.close();
+			
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 	
-	public boolean isInCache(String ip) {
-		return cachedIPs.contains(ip);
+	public void newCache() {
+		File oldCache = new File(plugin.getDataFolder(), "cache");
+		File newCache = new File(plugin.getDataFolder(), "blacklist_cache");
+		
+		if(oldCache.exists() && !newCache.exists()) {
+			oldCache.renameTo(newCache);
+		}
 	}
-
+	
+	public boolean isInBlacklistCache(String ip) {
+		return blacklistIPs.contains(ip);
+	}
+	
+	public boolean isInWhitelistCache(String ip) {
+		return whitelistIPs.contains(ip);
+	}
 }
