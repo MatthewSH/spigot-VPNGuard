@@ -16,7 +16,7 @@ VPN Guard is an open-source Spigot plugin that has VPN file caching and has 2 we
 `vpngpurge` (Console Command) - **This purges the VPN cache completely and will call the APIs immediately, use with caution!**
 
 ## Permissions
-`vpnguard.allowvpn` - Allows a user to log in with a VPN. (Defaults false)
+`vpnguard.bypass` - Allows a user to log in with a VPN. (Defaults false). `vpnguard.allowvpn` will be removed in 2.0. It's currently depreciated.
 
 `vpnguard.command.refresh` - Allows use of the refresh command. (Defaults OP)
 
@@ -27,7 +27,7 @@ Two APIs are used in the plugin.
 [Get IP Intel](https://getipintel.net/) is the primary API, with a fallback on [IP Hub](https://iphub.info/) in case of server downtime. If both servers are down, it will fail out.
 
 ## Caching
-A file is created called `cache` this is a file containing known VPN IPs. Each IP is seperated by a line break. Usually this should be left alone, but if you want to add your own list of known IPs then you can. Here's an example of how it should look:
+A file is created called `blacklist_cache` this is a file containing known VPN IPs and a file called `whitelist_cache` with known user IPs. Each IP is seperated by a line break. Usually this should be left alone, but if you want to add your own list of known IPs then you can. Here's an example of how it should look:
 ```
 84.19.165.213
 84.19.169.235
